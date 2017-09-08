@@ -26,7 +26,7 @@ class IndexController extends BaseController{
         if(emppty($pw1) || empty($pw2)){
             $this->error('密码不能为空');
         }
-        if($pw1 ！= $pw1){
+        if($pw1 != $pw1){
             $this->error('两次密码输入不一致');
         }
         

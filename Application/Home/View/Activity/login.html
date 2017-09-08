@@ -1,0 +1,56 @@
+<extend name="Activity/base"/>
+
+<block name="style">
+    <link href="__PUBLIC__/Activity/css/login.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="body">
+
+    <header>
+        <a id="go-back" target="_self" title="58工长通">
+            <i class="iconfont icon-goback">
+            </i>
+        </a>
+        <h1 class="header-title">
+            帐号登录
+        </h1>
+    </header>
+
+    <section class="tMarA">
+        <div class="item fix">
+            <label>
+                手机号
+            </label>
+            <input name="" type="text" class="tel" id="tel">
+        </div>
+        <div class="item fix">
+            <label>
+                验证码
+            </label>
+            <input name="" type="text" class="verific" id="msgWord">
+            <input name="send_type" value="2" type="hidden" id="send_type">
+            <p class="msgBtn" id="msgBtn">
+					<span class="txt">
+						发送验证码
+					</span>
+					<span class="time">
+						（
+						<i id="time">
+							60
+						</i>
+						s）
+					</span>
+            </p>
+        </div>
+        <input name="" type="button" value="登录" class="btn opa7" id="loginBtn"
+               disabled="">
+        <a href="/gzt/index/reg.html" target="_parent" class="go">
+            新用户注册 &gt;
+        </a>
+    </section>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/Activity/js/login.js"></script>
+</block>

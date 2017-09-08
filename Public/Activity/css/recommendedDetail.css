@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* wushi 2017-03-07 edit*/
+/* reset */
+.fix{*zoom: 1;}
+.fix:after{content: "";visibility: hidden;display: block;height: 0;clear: both;}
+.clear{ clear:both; height:1px; overflow:hidden;}
+/* layout */
+.col-center,.col-left,.col-right,.fl,.fr{float:left;display:inline}
+.col-right,.fr{float:right; display:inline;}
+/* 模块化 */
+.mod{position:relative;background:#fff}
+.bd,.hd{clear:both; overflow-x: hidden;}
+.no{display:none!important}
+.yes{display:block!important}
+/**/
+body{ background:#fff;}
+.bg{ background:url(../img/recommendedDetails_xbg.png) left -0.9rem repeat-x; background-size:contain; overflow:hidden; margin-top:1px;	}
+.userMod{ color:#fff; margin:0.29rem 0 0 0.36rem;}
+.userMod .pic{ height:1rem; width:1rem; overflow:hidden; -moz-border-radius:50%; -webkit-border-radius:50%; -khtml-border-radius:50%; border-radius:50%; border:solid 1px #fff; box-shadow:0px 1px 5px #e4a140; float:left; margin-right:0.27rem;}
+.userMod .pic img{ width:1rem; height:1rem;}
+.userMod .name{ font:0.34rem/0.62rem "Microsoft YaHei"; height:0.62rem;}
+.userMod .tel{ font:0.3rem/0.32rem "Microsoft YaHei"; height:0.32rem;}
+
+.homeMod{ -moz-border-radius:10px; -webkit-border-radius:10px; -khtml-border-radius:10px; border-radius:10px; background:#fff; margin:0.25rem 0.3rem 0 0.3rem; padding:0.4rem 0.44rem; box-shadow:0px 1px 3px #e8e7e7; margin-bottom:3px;}
+.homeMod .tit{ font:0.3rem/0.32rem "Microsoft YaHei"; color:#333;}
+.homeMod .desc{ font:0.3rem/0.32rem "Microsoft YaHei"; color:#fdb347; margin-top:0.3rem;}
+.homeMod .desc span{ margin-right:0.3rem;}
+
+.detailsMod{ background:url(../img/recommendedDetails_ybg.png) 0.2rem repeat-y; margin:0.3rem 0.3rem 0 0.3rem;}
+.detailsMod li{ margin-bottom:0.66rem; height:0.38rem;}
+.detailsMod .num{ float:left;  background:#fff; height:0.38rem; width:0.38rem; font:0.24rem/0.38rem "Microsoft YaHei"; text-align:center; -moz-border-radius:50%; -webkit-border-radius:50%; -khtml-border-radius:50%; border-radius:50%; border:solid 1px #e4e4e4; box-shadow:0px 1px 5px #f6f6f6; color:#b9b9b9;}
+.detailsMod .tit{ font:0.28rem/0.38rem "Microsoft YaHei"; height:0.38rem; float:left; margin-left:0.75rem;}
+.detailsMod .success .tit{ color:#47a2ff;}
+.detailsMod .fail .tit{ color:#ff002a; margin:-0.18rem 0 0 0.75rem;}
+.detailsMod .reason{ font:0.24rem/0.26rem "Microsoft YaHei"; color:#b4b4b4; margin:0.08rem 0 0 0.75rem; float:left; width:70%;}
+.detailsMod .state{ height:0.36rem; width:0.36rem; float:right; margin-top:0.05rem;}
+.detailsMod .success .state{ background:url(../img/success.png) no-repeat; background-size:contain;}
+.detailsMod .fail .state{ color:#ff002a; background:url(../img/fail.png) no-repeat; background-size:contain;}

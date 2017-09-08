@@ -1,0 +1,199 @@
+<extend name="Activity/base"/>
+<block name="body">
+
+    <header>
+        <h1 class="header-title">
+            推荐装修返现
+        </h1>
+    </header>
+    <!--banner s-->
+    <!--banner s-->
+    <section id="index-banner">
+        <ul id="banner-box" class="swiper-wrapper">
+            <script type="text/template" id="index-banner-template">
+                <% for(var i=0; i<banners_data.length; i++){ %>
+                <% var item = banners_data[i] %>
+                <li class="swiper-slide">
+                    <a class="banner-link" href=<%=item.url%>>
+                        <img class="banner-img" src=<%=item.img%>>
+                    </a>
+                </li>
+                <% } %>
+            </script>
+        </ul>
+        <div class="swiper-pagination"></div>
+    </section>
+    <!--banner e-->
+
+    <!--banner e-->
+    <!--info s-->
+    <section class="info">
+        <div class="numtim">
+            今日您还可以推荐
+				<span class="nt_number">
+					10
+				</span>
+            名用户
+        </div>
+        <div class="infotext">
+            <!--必填项 s-->
+            <div class="info_import">
+                <ul class="if_states">
+                    <li class="if_name clearfix">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            姓名
+                        </div>
+                        <input class="textmass" type="text" states="title" placeholder="请输入真实姓名">
+                    </li>
+                    <li class="if_number clearfix">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            电话
+                        </div>
+                        <input class="textmass" type="text" pattern="^1[3-9]\d{9}$" required states="mobile" placeholder="请输入您的电话">
+                    </li>
+                    <li class="if_sex clearfix" option="1">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            性别
+                        </div>
+                        <div class="fr clearfix sex_minu">
+                            <div class="fl sex_left sexno_minu " statesnum="1">
+                                <i class="iconfont icon-xuanze2">
+                                </i>
+									<span>
+										先生
+									</span>
+                            </div>
+                            <div class="sex_right fl sexno_minu" statesnum="2">
+                                <i class="iconfont icon-xuanze2">
+                                </i>
+									<span>
+										女士
+									</span>
+                            </div>
+                        </div>
+                        <input type="hidden" class="textmass" states="sex">
+                    </li>
+                    <li class="if_address clearfix">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            地址
+                        </div>
+                        <!--<input class="fr" type="text" states=" province" placeholder="请选择城市">-->
+                        <div class="province fr post_text">
+                            <select name="select-01" id="select-01" class="textmass" states="areaid_2"></select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--必填项 e-->
+            <!--选填项 s-->
+            <div class="info_Choice">
+                <ul class="if_states">
+                    <li class="if_name clearfix">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            小区名
+                        </div>
+                        <input class="textmass" type="text" states="address" placeholder="请输入所在小区">
+                    </li>
+                    <li class="if_number clearfix" option="2">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            新旧
+                        </div>
+                        <div class="fr clearfix sex_minu">
+                            <div class="fl sex_left sexno_minu" statesnum="1">
+                                <i class="iconfont icon-xuanze2">
+                                </i>
+									<span>
+										新房
+									</span>
+                            </div>
+                            <div class="fl sex_right sexno_minu" statesnum="3">
+                                <i class="iconfont icon-xuanze2">
+                                </i>
+									<span>
+										旧房
+									</span>
+                            </div>
+                        </div>
+                        <input type="hidden" class="textmass" states="housecategory">
+                    </li>
+                    <li class="if_sex clearfix">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            面积
+                        </div>
+                        <div class="fr clearfix post_text">
+                            <div class="fr if_many">
+                                ㎡
+                            </div>
+                            <input class="textmany_area textmass" type="text" states="area">
+                        </div>
+                    </li>
+                    <li class="if_address clearfix">
+                        <div class="if_listtitle fl">
+								<span>
+									*
+								</span>
+                            预算
+                        </div>
+                        <div class="fr clearfix post_tex">
+                            <div class="fr if_many">
+                                万元
+                            </div>
+                            <input class="textmany_wy textmass" type="text" states="budget">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--选填项 e-->
+        </div>
+        <!--submite start-->
+        <input type="submit" value="立即推荐 领取返现" class="if_sub is_disa" disabled="">
+    </section>
+    <!--info e-->
+    <section class="round">
+        <ul class="round_box" id="index-silder-round">
+            <script type="text/template" id="index-silder-template">
+                <% for(var i=0; i<bxsilder_data.length; i++){ %>
+                <% var item = bxsilder_data[i] %>
+                <li class="round_list fl">
+                    <div class="round_imgtit">
+                        <img src="<%= item.header %>">
+                    </div>
+                    <p class="round_pnumber"><%= item.mobile %></p>
+                    <p  class="round_name">获取返现<span class="color_org"><%= item.money %></span>元</p>
+                </li>
+                <% } %>
+            </script>
+        </ul>
+    </section>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/Activity/js/index.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#select-01').loadProvince();
+        });
+    </script>
+</block>

@@ -1,0 +1,243 @@
+body{
+    background: #f5f5f5;
+}
+.color_org{
+    color: orange !important;
+}
+.color_bul{
+    color: #47a2ff;
+}
+.color_333{
+    color: #333333;
+}
+.color_999{
+    color: #999999;
+}
+.us_title{
+    width:100%;
+    height:5.34rem;
+    position: relative;
+}
+
+.us_titlebg{
+    width:100%;
+    height:2.94rem;
+    background: url("../img/headerbg.png") no-repeat;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    -ms-background-size:100%;
+    background-size:100%;
+}
+.us_cont{
+    width:6.8rem;
+    height:4.38rem;
+    background: url("../img/headerwindow.png") no-repeat;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    -ms-background-size:100%;
+    background-size:100%;
+    position: absolute;
+    top:0.66rem;
+    left:50%;
+    margin-left:-3.4rem;
+}
+.us_conttit{
+    width:6.29rem;
+    height:1.46rem;
+    border-bottom:1px solid #f1f1f1;
+    margin:0 auto;
+}
+.us_conttit a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.us_logo img{
+    width:0.96rem;
+    height:0.96rem;
+    -webkit-border-radius:100%;
+    -moz-border-radius:100%;
+    border-radius:100%;
+    display: block;
+    margin:0.22rem 0.2rem 0 0;
+}
+.us_phonenum{
+    font-size:0.34rem;
+    line-height:0.4rem;
+    margin-top:0.33rem;
+    color: #333;
+}
+.us_phonenump1{
+    font-size:0.28rem;
+    color: #cbcbcb;
+}
+.us_titright{
+    margin-top:0.5rem;
+}
+.us_titright .icon-erweima{
+    color: #d9d9d9;
+    font-size:0.43rem;
+    margin-right:-0.1rem;
+}
+.us_titright .icon-goback{
+    color: #d9d9d9;
+    font-size:0.5rem;
+    margin-top:-0.05rem;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+
+.us_money{
+    width:100%;
+    height:1.86rem;
+    color: #999;
+    font-size:0.18rem;
+    text-align: center;
+}
+.us_money p{
+    line-height:0.4rem;
+}
+.us_money h3{
+    font-size:0.6rem;
+    padding-top:0.15rem;
+}
+.us_money h3 span{
+    font-size:0.24rem;
+    margin-right:0.05rem;
+}
+
+.us_button{
+    width:100%;
+    height:1rem;
+    font-size:0.36rem;
+    line-height:1rem;
+    text-align: center;
+}
+.us_button a{
+    width:100%;
+    height:100%;
+    display: block;
+    color: orange;
+}
+
+
+/*promote start*/
+.promote{
+    background: #fff;
+    width:100%;
+    overflow: hidden;
+}
+.promote_tit{
+    position: relative;
+    width:100%;
+    height:0.78rem;
+    border-bottom:1px solid #ebebeb;
+    font-size:0.34rem;
+    line-height:0.78rem;
+    text-indent:0.4rem;
+}
+.promote_right{
+    height:100%;
+    margin-right:-0.3rem;
+}
+.promote_tit a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.promote_name{
+    text-indent:0.4rem;
+    color: #333;
+}
+.promote_right .icon-goback{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    display: block;
+    font-size:0.5rem;
+    color: #b0b0b0;
+}
+.promote_list{
+    padding:0.21rem;
+    border-bottom:1px solid #f1f1f1;
+}
+.prom_name{
+    text-indent:0.18rem;
+}
+.prom_name .color_333{
+    font-size:0.3rem;
+    line-height:0.46rem;
+}
+.prom_name .color_999{
+    font-size:0.24rem;
+    line-height:0.38rem;
+}
+.prom_status{
+    font-size:0.22rem;
+    text-align: center;
+    width:1.7rem;
+    color: #47a2ff;
+    line-height:0.28rem;
+    margin-top:0.14rem;
+}
+
+.promote_none,.friend_none{
+    font-size:0.3rem;
+    color: #333;
+    line-height:1rem;
+    text-indent:0.39rem;
+    display: none;
+}
+.promote_none a,.friend_none a{
+    color: orange;
+}
+/*promote end*/
+
+
+/*friend start*/
+.friend{
+    margin:0.2rem 0 1.5rem 0;
+}
+
+.round{
+    height:2.38rem;
+    background: #fff;
+    width:100%;
+    overflow: hidden;
+}
+.round_box{
+    width:100rem;
+    height:100%;
+}
+.round_list{
+    overflow: hidden;
+    /*width:2.24rem;*/
+    padding:0 0.12rem;
+    height:100%;
+    text-align: center;
+    font-size: 0.2rem;
+    line-height:0.35rem;
+}
+.round_imgtit img{
+    width:1.18rem;
+    height:1.18rem;
+    -webkit-border-radius:100%;
+    -moz-border-radius:100%;
+    border-radius:100%;
+    margin-top:0.2rem;
+}
+.round_pnumber{
+    font-size:0.24rem;
+    color: #999;
+    margin-top:0.09rem;
+}
+.round_name{
+    color: #333;
+}
+/*friend end*/
+
+

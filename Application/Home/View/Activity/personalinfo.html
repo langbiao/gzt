@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>
+        58工长通-管家式装修服务平台
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/base.css">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/swiper.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/index_footerminu.css">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/index.css">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/personinfo.css"  type="text/css">
+</head>
+
+<body>
+
+<header>
+    <a id="go-back" target="_self" title="58工长通">
+        <i class="iconfont icon-goback"></i>
+    </a>
+    <h1 class="header-title">
+        个人信息
+    </h1>
+</header>
+
+<section id="container"></section>
+
+<div class="windowBg" style="display:none;"></div>
+<div class="alertDiv" style="display:none;">
+    <div class="txt fix">
+        <input name="" type="text" class="int" id="int" value="信息">
+        <cite class="close"></cite>
+    </div>
+    <div class="btn fix">
+        <input name="" type="reset" class="res" value="取消">
+        <input name="" type="submit" class="sub" value="确定">
+    </div>
+</div>
+
+<script type="text/template" id="each_template">
+    <%var user=PersonInfo%>
+    <ul class="userInfo">
+        <li>
+            <p class="tit">头像</p>
+            <p class="pic"><img src="<%=user.avatar%>" width="90" height="90"></p>
+        </li>
+        <li id="name">
+            <p class="tit">昵称</p>
+            <cite class="arrorIcon"></cite>
+            <p class="desc"><%=user.nickname%></p>
+        </li>
+        <li id="sex">
+            <p class="tit">性别</p>
+            <cite class="arrorIcon"></cite>
+            <p class="desc">
+                <select id="sexSelect" >
+                    <option class="man" value="1" <% if(user.sex == 1){ %>selected="selected"<% } %>>男</option>
+                    <option class="woman" value="2" <% if(user.sex == 2){ %>selected="selected"<% } %>>女</option>
+                </select>
+            </p>
+        </li>
+        <li id="code">
+            <p class="tit">二维码</p>
+            <cite class="arrorIcon"></cite>
+            <p class="code"></p>
+        </li>
+        <li class="btn">退出登录</li>
+    </ul>
+</script>
+
+<script type="text/javascript" src="__PUBLIC__/Activity/js/defined.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/zepto.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/base.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/underscore-template.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/manager_select.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/personinfo.js"></script>
+
+</body>
+
+</html>

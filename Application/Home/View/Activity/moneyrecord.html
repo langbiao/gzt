@@ -1,0 +1,72 @@
+<extend name="Activity/base"/>
+
+<block name="style">
+    <link href="__PUBLIC__/Activity/css/moneyrecord.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="body">
+
+    <header>
+        <a id="go-back" target="_self" title="58工长通">
+            <i class="iconfont icon-goback"></i>
+        </a>
+        <h1 class="header-title">
+			提取历史
+        </h1>
+    </header>
+
+	<div id="container">
+		<script type="text/template" id="each_template">
+            <% for(var i=0; i<cardInfo.length; i++){ %>
+            <% var e = cardInfo[i] %>
+			<section class="bg_fff">
+				<div class="infoMod fix">
+					<div class="col-left">
+						<p class="time"><%=e.addtime%></p>
+						<p class="money"><cite class="icon">¥</cite><%=e.money%></p>
+
+						<% var cardValue = "" %>
+						<% var tempStr = e.bank_number %>
+						<% for( var j=0; j<tempStr.length; j+=4){%>
+						<% cardValue += tempStr.substring(j,j+4) + " " %>
+						<% } %>
+
+						<p class="cardNumber"><%=e.bank_name%> : <%=cardValue%></p>
+					</div>
+					<div class="col-right">
+						<% var stateTxt="" %>
+						<% var stateClass="" %>
+						<% var stateStyle="" %>
+						<% if(e.status==0){ %>
+						<% stateTxt="提取中"%>
+						<% stateClass="extraction"%>
+						<p class="state <%=stateClass%>"><%=stateTxt%></p>
+						<% } else if(e.status==1){%>
+						<% stateTxt="已打款"%>
+						<% stateClass="success"%>
+						<p class="state <%=stateClass%>"><%=stateTxt%></p>
+						<p class="success_info" >请注意查收</p>
+						<% }else if(e.status==2){%>
+						<% stateTxt="提取失败"%>
+						<% stateClass="fail"%>
+						<p class="state <%=stateClass%>"><%=stateTxt%></p>
+						<span class="fail_btn">查看原因 &gt; </span>
+
+						<% } %>
+					</div>
+				</div>
+				<% if(e.status==2){ %>
+				<p class="error"><%=e.remark%></p>
+				<% } %>
+			</section>
+			<%}%>
+		</script>
+
+	</div>
+
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/Activity/js/moneyrecord.js"></script>
+</block>

@@ -1,0 +1,81 @@
+
+.color_org{
+    color: orange;
+}
+.color_bul{
+    color: #47a2ff;
+}
+.color_333{
+    color: #333333;
+}
+.color_999{
+    color: #999999;
+}
+
+.rule img{
+    width:100%;
+    height:100%;
+}
+/*footer minu start*/
+.footer_minu {
+    width: 7.5rem;
+    height: 0.98rem;
+    background: #fff;
+    border-top: 1px solid #d5d5d5;
+    position: fixed;
+    overflow: hidden;
+    left: 50%;
+    bottom: 0;
+    margin-left: -3.75rem;
+    z-index:3;
+}
+.footer_minu li{
+    height:0.98rem;
+    text-align: center;
+    width:25%;
+    position: relative;
+    overflow: hidden;
+}
+.footer_minu li div{
+    /*position: absolute;
+    left:0;
+    top:0;*/
+    margin-top:0.15rem;
+}
+.footer_minu li i{
+    display: block;
+}
+
+.footer_minu a{
+    display: block;
+    width:100%;
+    height:100%;
+    /* position: absolute;
+    left:0;
+    top:0;*/
+}
+.footer_minu ul{
+
+}
+.footer_minu ul p{
+    /* margin-top:-0.15rem;*/
+}
+.footer_minu .iconfont{
+    /* position: relative;
+     top:-0.55rem;*/
+    font-size:0.4rem;
+    color: orange;
+}
+.footer_minucenter{
+    margin:0 0.79rem;
+}
+.footer_minu p{
+    font-size:0.22rem;
+    color: #999;
+    /*position: relative;
+    top:-0.7rem;*/
+}
+.minu_active p{
+    color: #ff9800;
+}
+/*footer minu end*/

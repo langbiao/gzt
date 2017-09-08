@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* wushi 2017-03-03 edit*/
+/* reset */
+.fix{*zoom: 1;}
+.fix:after{content: "";visibility: hidden;display: block;height: 0;clear: both;}
+.clear{ clear:both; height:1px; overflow:hidden;}
+/* layout */
+.col-center,.col-left,.col-right,.fl,.fr{float:left;display:inline}
+.col-right,.fr{float:right; display:inline;}
+/* 模块化 */
+.mod{position:relative;background:#fff}
+.bd,.hd{clear:both; overflow-x: hidden;}
+.no{display:none!important}
+.yes{display:block!important}
+/**/
+body{ background:#f5f5f5;}
+section{ padding:0 0.36rem; margin-bottom:0.2rem;}
+.bg_fff{ background:#fff;}
+.infoMod{ font-family:"Microsoft YaHei"; padding-top:0.35rem; height:1.54rem;}
+.infoMod .col-left{ margin-left:0.2rem; width:5rem;}
+.infoMod .col-right{ width:1.25rem; text-align:center;}
+.infoMod .time{ color:#ff9800; font-size:0.18rem; line-height:0.2rem; }
+.infoMod .money{ color:#333; font-size:0.48rem; height:0.8rem; line-height:0.8rem; }
+.infoMod .money .icon{ font-size:0.24rem; font-style:inherit; vertical-align:0.08rem; margin:0 0.07rem 0 -0.24rem;}
+.infoMod .cardNumber{ color:#b4b4b4; font-size:0.24rem; line-height:0.26rem;}
+.infoMod .state{ font-size:0.30rem; line-height:0.32rem; margin-top:0.42rem;}
+.infoMod .extraction{ color:#47a2ff;}
+.infoMod .success{ color:#30b901;}
+.infoMod .success_info{ color:#30b901; font-size:0.24rem; margin-top:0.1rem;}
+.infoMod .fail{ color:#f70000;}
+.infoMod .fail_btn{ color:#666; font-size:0.24rem; margin-top:0.32rem; display:block;}
+.error{ color:#666; font:0.24rem/0.36rem "Microsoft YaHei"; clear:both; border-top:solid 1px #f4f4f4; padding:0.2rem 0.2rem 0.2rem 0; display:none;}

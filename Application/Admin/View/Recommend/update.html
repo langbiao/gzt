@@ -1,0 +1,68 @@
+<include file="Public/header" title="编辑推荐信息" />
+<div id="page-wrapper">
+<form action="{:U('recommend/update')}" method="post">
+	<div class="form-group">
+		<label>推荐姓名</label>
+		<input class="form-control" disabled type="text" name="r_username" value="{$model.r_username}">
+	</div>
+	<div class="form-group">
+		<label>手机号</label>
+		<input class="form-control" disabled type="text" name="r_mobile" value="{$model.r_mobile}">
+	</div>
+	<!--<div class="form-group">-->
+		<!--<label>性别</label>-->
+		<!--<input class="form-control" disabled type="text" name="r_sex" value="<if condition="$model.r_sex eq 1">男<else />女</if>">-->
+	<!--</div>-->
+    <div class="form-group">
+        <label>地址</label>
+        <input class="form-control" disabled type="text" name="r_address" value="{$model.r_address}">
+    </div>
+	<div class="form-group">
+		<label>小区</label>
+		<input class="form-control" disabled type="text" name="r_community" value="{$model.r_community}">
+	</div>
+    <div class="form-group">
+        <label>面积(㎡)</label>
+        <input class="form-control" disabled type="text" name="r_acreage" value="{$model.r_acreage}">
+    </div>
+    <div class="form-group">
+        <label>预算(w)</label>
+        <input class="form-control" disabled type="text" name="r_budget" value="{$model.r_budget}">
+    </div>
+	<div class="form-group">
+        <label>状态</label>
+        <volist name="status_text" id="vo">
+            <label class="radio-inline">
+              <input type="radio" name="r_status" value="{$key}" <if condition="$model.r_status eq $key">checked="checked"</if>>{$vo}
+            </label>
+        </volist>
+    </div>
+    <div class="form-group" id="input_reason" style="<if condition='$model.r_status lt 3'>display:none;</if>">
+        <label>原因</label>
+        <input class="form-control" type="text" name="r_reason" value="{$model.r_reason}" placeholder="失败必须填写原因">
+    </div>
+    <if condition="$model.r_status lt 3">
+	<div class="form-group">
+		<input type="hidden" name="id" value="{$model.r_id}">
+		<button class="btn btn-success" type="submit" >更新</button>
+	</div>
+    </if>
+
+
+</form>
+</div>
+
+<include file="Public/footer" />
+
+<script>
+    $(function(){
+        $('input[type="radio"]').click(function(){
+            if ($(this).val() > 3) {
+                $('#input_reason').show();
+            } else {
+                $('#input_reason').find('input').val('');
+                $('#input_reason').hide();
+            }
+        });
+    });
+</script>

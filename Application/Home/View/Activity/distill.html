@@ -1,0 +1,72 @@
+<extend name="Activity/base"/>
+
+<block name="style">
+    <link href="__PUBLIC__/Activity/css/distill.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="body">
+
+    <header>
+        <a id="go-back" target="_self" title="58工长通">
+            <i class="iconfont icon-goback"></i>
+        </a>
+        <h1 class="header-title">
+            提取奖励金
+        </h1>
+    </header>
+
+    <section class="money_cont">
+		<div class="money_conttit clearfix" id="dis-title">
+			<script type="text/template" id="dis-title-template">
+				<div class="usable fl">
+					<h4>可提佣金（元）</h4>
+					<p><%= dist_title.cumulative_money %></p>
+				</div>
+				<div class="addup fl">
+					<h4>累计提取（元）</h4>
+					<p><%= dist_title.extract_money %></p>
+				</div>
+			</script>
+		</div>
+		<p class="history_link"><a href="/gzt/index/moneyrecord.html">提取历史&gt;&gt;</a></p>
+	</section>
+
+    <section class="usable_sel">
+		<div class="usa_selbox" id="usa-selbox">
+			<script type="text/template" id="usa-selbox-template">
+				<a href="/gzt/index/selectcard.html" class="clearfix">
+					<%if(!dist_title.bank_number){%>
+					<p class="fl bankcard" status="1">请选择收款的储蓄卡</p>
+					<%}else{%>
+					<p class="fl bankcard" status="2"><%= dist_title.bank_str %></p>
+					<% } %>
+					<i class="iconfont fr icon-goback"></i>
+				</a>
+			</script>
+		</div>
+
+		<div class="usa_text">
+			<h3>请输入提取金额</h3>
+			<div class="usa_textcont">
+				<span class="color_org">¥</span>
+				<input class="use_textnum" type="text">
+				<span class="color_999">元</span>
+			</div>
+		</div>
+		<input type="submit" value="确认提现" class="usa_button usa_dis" disabled="">
+	</section>
+	
+	<section class="prompts">
+		<h2>温馨提示：</h2>
+		<ul>
+			<li>1.单笔提取金额需大于等于100元</li>
+			<li>2.金额需为10的倍数，如110、150、200等</li>
+			<li>3.提现后3-5个工作日到账</li>
+		</ul>
+	</section>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/Activity/js/distill.js"></script>
+</block>

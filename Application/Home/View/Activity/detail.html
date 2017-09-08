@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>
+        58工长通-管家式装修服务平台
+    </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/base.css">
+    <link rel="stylesheet" href="__PUBLIC__/Activity/css/recommendedDetail.css">
+</head>
+<body>
+<header>
+    <a id="go-back" target="_self" title="58工长通">
+        <i class="iconfont icon-goback"></i>
+    </a>
+    <h1 class="header-title">推荐详情</h1>
+</header>
+
+<div id="container"></div>
+
+<script type="text/javascript" src="__PUBLIC__/Activity/js/defined.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/zepto.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/base.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/underscore-template.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Activity/js/recommendedDetail.js"></script>
+
+<script type="text/template" id="each_template">
+    <%var user=userInfo%>
+    <section>
+        <div class="bg">
+            <dl class="userMod fix">
+                <dt class="pic"><img src="<%=user.avatar%>" height="100"></dt>
+                <% if( user.sex==1 ){ %>
+                <% tempSex="先生" %>
+                <% }else if( user.sex==2 ){ %>
+                <% tempSex="女士" %>
+                <% }else{%>
+                <% tempSex="" %>
+                <% } %>
+                <dd class="name"><%=user.title%> <%=tempSex%></dd>
+                <dd class="tel"><%=user.mobile%></dd>
+            </dl>
+            <dl class="homeMod">
+                <dt class="tit"><%=user.city+' '+user.address%></dt>
+                <dd class="desc">
+                    <% if( user.area!=0 && user.area!="" && user.area!=null){ %>
+                    <span><%=user.area%>㎡</span>
+                    <% } %>
+
+                    <% if( user.budget!=0 && user.budget!="" && user.budget!=null){ %>
+                    <span><%=user.budget%>万元</span>
+                    <% } %>
+
+                </dd>
+            </dl>
+        </div>
+    </section>
+    <section>
+        <ul class="detailsMod">
+            <% for(var key in progressData){ %>
+            <% var item = progressData[key] %>
+            <% tempNum = Number(key)+1 %>
+            <% var tempClass="" %>
+            <% if( item.status==0 ){ %>
+            <% tempClass="success fix" %>
+            <% }else{ %>
+            <% tempClass="fail fix" %>
+            <% } %>
+            <li class="<%=tempClass%>">
+                <cite class="state"></cite>
+                <cite class="num"><%=tempNum%></cite>
+                <p class="tit"><%=item.title%></p>
+                <% if( item.status==1  ){%>
+                <p class="reason">原因 : <%=item.reason%><br /><%=item.time%></p>
+                <% }else{ %>
+                <p class="reason"><%=item.time%></p>
+                <% } %>
+            </li>
+            <% } %>
+        </ul>
+    </section>
+
+
+
+</script>
+
+</body>
+
+</html>

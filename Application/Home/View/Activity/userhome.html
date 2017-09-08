@@ -1,0 +1,87 @@
+<extend name="Activity/base"/>
+
+<block name="style">
+    <link href="__PUBLIC__/Activity/css/userhome.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="body">
+
+    <header>
+        <a id="go-back" target="_self" title="58工长通">
+            <i class="iconfont icon-goback"></i>
+        </a>
+        <h1 class="header-title">
+            我的账户
+        </h1>
+    </header>
+
+    <section class="us_title" id="user-title">
+        <script type="text/template" id="user-title-template">
+            <div class="us_titlebg"></div>
+            <div class="us_cont">
+                <div class="us_conttit clearfix">
+                    <a href="/gzt/index/personalinfo.html" class="clearfix">
+                        <div class="us_titleft fl">
+                            <div class="us_logo fl">
+                                <img src="<%= user_title.avatar %>">
+                            </div>
+                            <div class="us_phonenum fl">
+                                <p><%= user_title.nickname %></p>
+                                <p class="us_phonenump1">邀请码 <span class="color_bul"><%= user_title.icode %></span></p>
+                            </div>
+                        </div>
+                        <div class="us_titright fr clearfix">
+                        <i class="iconfont fl icon-erweima"></i>
+                        <i class="iconfont fl icon-goback"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="us_money">
+                    <h3 class="color_org"><span>¥</span><%= user_title.cumulative_money %></h3>
+                    <p class="color_org">可提佣金（元）</p>
+                    <p>单笔提取金额大于等于100元</p>
+                </div>
+
+                <div class="us_button">
+                    <a href="/gzt/index/distill.html">提取</a>
+                </div>
+            </div>
+        </script>
+    </section>
+
+    <section class="promote promotes">
+        <div class="promote_tit clearfix">
+            <a href="javascript:void(0);" class="clearfix">
+                <div class="promote_name fl">我的推荐</div>
+                <div class="promote_right fr">
+                    <i class="iconfont icon-goback"></i>
+                </div>
+            </a>
+        </div>
+        <ul class="promote_cont" id="user-promote">
+            <script type="text/template" id="user-promote-template">
+                <% for(var i=0; i<user_promote.length; i++){ %>
+                <% var item = user_promote[i] %>
+                <li class="promote_list clearfix">
+                    <div class="fl prom_name">
+                        <p class="color_333"><%= item.title %>
+                            <% if(item.area){ %>
+                            <%= item.area %>㎡
+                            <% } %>
+                        </p>
+                        <p class="color_999"><%= item.city %>    <%= item.address %></p>
+                    </div>
+                    <div class="prom_status fr"><%= item.status_reason %></div>
+                </li>
+                <% } %>
+            </script>
+        </ul>
+        <div class="promote_none">您还没有推荐，<a href="/gzt/index/index.html">现在就去推荐>></a></div>
+    </section>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/Activity/js/userhome.js"></script>
+</block>

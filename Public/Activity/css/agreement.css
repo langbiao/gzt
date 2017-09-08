@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* wushi 2017-03-08 edit*/
+/* reset */
+.fix{*zoom: 1;}
+.fix:after{content: "";visibility: hidden;display: block;height: 0;clear: both;}
+.clear{ clear:both; height:1px; overflow:hidden;}
+/* layout */
+.col-center,.col-left,.col-right,.fl,.fr{float:left;display:inline}
+.col-right,.fr{float:right; display:inline;}
+/* 模块化 */
+.mod{position:relative;background:#fff}
+.bd,.hd{clear:both; overflow-x: hidden;}
+.no{display:none!important}
+.yes{display:block!important}
+/**/
+body{ background:#fff; font-family:"Microsoft YaHei";}
+.tMarA{ margin-top:0.2rem;}
+section{ padding:0 0.5rem; font-size:0.24rem; line-height:0.4rem;}
+section p{ margin:0.2rem 0;}
+.tit{font-weight:bold;}

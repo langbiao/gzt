@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>
+            58工长通-管家式装修服务平台
+        </title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <link rel="stylesheet" href="__PUBLIC__/Activity/css/base.css">
+        <link rel="stylesheet" href="__PUBLIC__/Activity/css/swiper.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Activity/css/index_footerminu.css">
+        <link rel="stylesheet" href="__PUBLIC__/Activity/css/index.css">
+        <block name="style"></block>
+    </head>
+
+    <body>
+
+        <block name="body"></block>
+		<if condition="$show_footer neq 'no'">
+        <!--footer minu start-->
+        <section class="footer_minu">
+            <ul class="clearfix">
+                <li class="fl minu_active">
+                    <a href="/gzt/index/index.html">
+                        <div>
+                            <i class="iconfont <eq name='current_menu' value='/gzt/index/index'>icon-tuijianhaoyou1<else />icon-tuijianhaoyou</eq>">
+                            </i>
+                        </div>
+                        <p>
+                            推荐
+                        </p>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="/gzt/index/rule.html">
+                        <div>
+                            <i class="iconfont <eq name='current_menu' value='/gzt/index/rule'>icon-jiangliguize2<else />icon-jiangliguize</eq>">
+                            </i>
+                        </div>
+                        <p>
+                            规则
+                        </p>
+                    </a>
+                </li>
+                <li class="fl footer_userhome">
+                    <a href="/gzt/index/login.html">
+                        <div>
+                            <i class="iconfont <eq name='current_menu' value='/gzt/index/userhome'>icon-wodezhanghu1<else />icon-wodezhanghu</eq>">
+                            </i>
+                        </div>
+                        <p>
+                            我的
+                        </p>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="/gzt/index/service.html">
+                        <div>
+                            <i class="iconfont <eq name='current_menu' value='/gzt/index/service'>icon-lianxikefu1<else />icon-lianxikefu</eq>">
+                            </i>
+                        </div>
+                        <p>
+                            客服
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+		</if>
+        <script type="text/javascript" src="__PUBLIC__/Activity/js/defined.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Activity/js/zepto.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Activity/js/base.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Activity/js/underscore-template.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Activity/js/manager_select.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Activity/js/swiper.jquery.min.js"></script>
+
+        <block name="script"></block>
+
+    </body>
+
+</html>

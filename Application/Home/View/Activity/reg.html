@@ -1,0 +1,44 @@
+<extend name="Activity/base"/>
+
+<block name="style">
+    <link href="__PUBLIC__/Activity/css/login.css" rel="stylesheet" type="text/css">
+</block>
+
+<block name="body">
+
+    <header>
+        <a id="go-back" target="_self" title="58工长通">
+            <i class="iconfont icon-goback"></i>
+        </a>
+        <h1 class="header-title">新用户注册</h1>
+
+    </header>
+
+    <section class="tMarA">
+        <div class="item fix"><label>手机号</label><input name="" type="text" class="tel" id="tel"></div>
+        <div class="item fix">
+            <label>验证码</label>
+            <input name="send_type" value="1" type="hidden" id="send_type">
+            <input name="" type="text" class="verific" id="msgWord">
+            <p class="msgBtn" id="msgBtn"><span class="txt">发送验证码</span><span class="time">（<i id="time">60</i> s）</span></p>
+        </div>
+        <div class="item fix">
+            <label>邀请码</label>
+            <input name="" type="text" class="invite" id="code" value="{$icode}" <if condition="$icode">readonly=true</if>>
+            <p class="info" id="codeInfo">若有邀请人请填写他的邀请码</p>
+
+        </div>
+        <input name="" type="button" value="注册" class="btn opa7" id="regBtn" disabled="">
+        <a href="/gzt/index/login.html" target="_parent" class="go">账户登录 &gt;</a>
+        <dl class="notice">
+            <dt>注册即代表您同意</dt>
+            <dd><a href="/gzt/index/agreement.html" target="_parent">《推荐装修返现用户须知协议》</a></dd>
+        </dl>
+
+    </section>
+
+</block>
+
+<block name="script">
+    <script type="text/javascript" src="__PUBLIC__/Activity/js/login.js"></script>
+</block>

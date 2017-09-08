@@ -1,0 +1,59 @@
+<extend name="Activity/base"/>
+<block name="style">
+    <link href="__PUBLIC__/Activity/css/login.css" rel="stylesheet" type="text/css">
+</block>
+<block name="body">
+
+    <header>
+        <a id="go-back" target="_self" title="">
+            <i class="iconfont icon-goback">
+            </i>
+        </a>
+        <h1 class="header-title">
+            上传图片
+        </h1>
+    </header>
+
+    <section class="tMarA">
+        <div class="item fix">
+            <label>
+                上传图片：
+            </label>
+            <input id="img_input" type="file" accept="image/*;" capture="camera" class="tel">
+        </div>
+
+</block>
+
+<block name="script">
+    <script>
+        $("#img_input").on("change", function(e) {
+            var file = e.target.files[0]; // 获取图片资源
+            var fd = new FormData(); // 用formdata上传文件
+
+            // 只选择图片文件
+            if (!file.type.match('image.*')) {
+                return false;
+            }
+
+            fd.append('file', file, file.name); // 填入文件
+
+            $.ajax({
+                url: '/Index/api?act=upload',
+                data: fd,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function (txt) {
+                    // 成功后显示文件预览
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file); // 读取文件
+                    // 渲染文件
+                    reader.onload = function(ev) {
+                        var img = '<img class="preview" src="' + ev.target.result + '" alt="preview"/>';
+                        $("#preview_box").empty().append(img);
+                    }
+                }
+            });
+        });
+    </script>
+</block>

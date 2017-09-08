@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* wushi 2017-03-06 edit*/
+/* reset */
+.fix{*zoom: 1;}
+.fix:after{content: "";visibility: hidden;display: block;height: 0;clear: both;}
+.clear{ clear:both; height:1px; overflow:hidden;}
+/* layout */
+.col-center,.col-left,.col-right,.fl,.fr{float:left;display:inline}
+.col-right,.fr{float:right; display:inline;}
+/* 模块化 */
+.mod{position:relative;background:#fff}
+.bd,.hd{clear:both; overflow-x: hidden;}
+.no{display:none!important}
+.yes{display:block!important}
+/**/
+body{ background:#f5f5f5;}
+section{ padding-top:0.1rem; overflow:hidden;}
+.bg_fff{ background:#fff; padding-top:0.3rem; }
+.noBg{ background:none; padding-top:0.1rem;}
+.cardWrap{ margin:0 0.3rem; -moz-border-radius:13px; padding:0.2rem 0.2rem 0 0.2rem; background:#f5f5f5; border-top-left-radius:13px; -moz-border-radius-topleft:13px; -webkit-border-top-left-radius:13px;border-top-right-radius:13px; -moz-border-radius-topright:13px; -webkit-border-top-right-radius:13px;}
+.cardMod { height:1.69rem; padding-top:0.3rem; color:#fff; display:block; 
+border-top-left-radius:15px; -moz-border-radius-topleft:15px; -webkit-border-top-left-radius:15px;border-top-right-radius:15px; -moz-border-radius-topright:15px; -webkit-border-top-right-radius:15px;
+
+background: -ms-linear-gradient(top, #93beff,  #5c9ede);        /* IE 10 */
+
+background:-moz-linear-gradient(top,#93beff,#5c9ede);/*火狐*/ 
+
+background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#93beff), to(#5c9ede));/*谷歌*/ 
+
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#93beff), to(#5c9ede));      /* Safari 4-5, Chrome 1-9*/
+
+background: -webkit-linear-gradient(top, #93beff, #5c9ede);   /*Safari5.1 Chrome 10+*/
+
+background: -o-linear-gradient(top, #93beff, #5c9ede);  /*Opera 11.10+*/
+}
+.cardMod .tit,.cardMod .name{ font:0.3rem/0.38rem "Microsoft YaHei";}
+.cardMod .tit .icon img{ height:0.38rem; width:0.38rem; margin-left:0.35rem; vertical-align:top;}
+.cardMod .name{ float:right; margin-right:0.3rem;}
+.cardMod .cardNum{ font:0.34rem/0.36rem "Microsoft YaHei"; margin:0.4rem 0 0 0.42rem; clear:both;}
+.bt_bg{ background: url(../img/selectCard_xbg.png) left bottom repeat-x; height:0.29rem; margin-top:-0.29rem;}
+.addCard{ background:#cbcbcb; -moz-border-radius:15px; -webkit-border-radius:15px; -khtml-border-radius:15px; border-radius:15px; margin:0.2rem 0.5rem 0.36rem 0.5rem; color:#fff; padding:0.2rem 0.34rem;}
+.addCard .dashedBold{ border:dashed 2px #e0e0e0; -moz-border-radius:15px; -webkit-border-radius:15px; -khtml-border-radius:15px; border-radius:15px; text-align:center; padding:0.3rem 0;}
+.addCard .tit{font:0.34rem/0.36rem "Microsoft YaHei";}
+.addCard .tit .icon{ width:0.36rem; height:0.36rem; display:inline-block; background:url(../img/add_icon.png) left bottom no-repeat; background-size:contain; margin:0.01rem 0.04rem 0 0; }
+.addCard .desc{font:0.2rem/0.22rem "Microsoft YaHei"; opacity:0.7; margin-top:0.1rem; padding-left:0.4rem;}

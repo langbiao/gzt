@@ -25,9 +25,11 @@
         var pass2 = $.trim($('input[name="password_new2"]').val());
             if(pass1 == '' || pass2 == ''){
               alert('密码不能为空');
+		    return false;
             }
             if(pass1 == pass2){
               alert('两次密码输入不一致');
+		    return false;
             }
             $('#setting-form').submit();
         });

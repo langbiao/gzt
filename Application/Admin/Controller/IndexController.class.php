@@ -33,7 +33,7 @@ class IndexController extends BaseController{
         $adminId = session('adminId');
         
         $flag = M('member', 'gztadmin_')->where(array('id'=>$adminId))->save(array('password'=>md5($pw1)));
-        
+        echo M('member', 'gztadmin_')->_sql();die;
         if($flag) {
             $this->success('修改成功');
         }else{

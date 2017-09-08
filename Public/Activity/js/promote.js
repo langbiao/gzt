@@ -28,7 +28,7 @@ function getPromote() {
 
 $(function(){
     if(!UID){
-        window.location.href = '/gzt/index/login.html';
+        window.location.href = '/index/login.html';
     }
     getPromote();
 });

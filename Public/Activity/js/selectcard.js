@@ -41,7 +41,7 @@ function selectCard(i){
 					showTip("最多可绑定3张银行卡");
 				}
 				else{
-					window.location.href='/gzt/index/bindcard.html';
+					window.location.href='/index/bindcard.html';
 				}
 			});
 			

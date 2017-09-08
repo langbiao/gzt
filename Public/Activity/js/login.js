@@ -336,7 +336,7 @@ function alertTip(tempCode,str) {
 
 
 function urlFn(){
-	window.location.href="/gzt/index/index.html";
+	window.location.href="/index/index.html";
 }
 //
 function getUrlRequest(){

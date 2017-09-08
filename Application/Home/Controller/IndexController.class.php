@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
 
-    const domain = 'http://www.langyongbiao.com/gzt/';
+    const domain = 'http://m.58gzt.com/';
 
     private $city = array ( 0 => array ( 'name' => '北京市', 'lib' => '3360', ), 1 => array ( 'name' => '天津市', 'lib' => '3362', ), 2 => array ( 'name' => '广州市', 'lib' => '326', ), 3 => array ( 'name' => '深圳市', 'lib' => '328', ), 4 => array ( 'name' => '上海市', 'lib' => '3361', ), 5 => array ( 'name' => '杭州市', 'lib' => '213', ), 6 => array ( 'name' => '西安市', 'lib' => '435', ), 7 => array ( 'name' => '南京市', 'lib' => '200', ), 8 => array ( 'name' => '惠州市', 'lib' => '336', ), 9 => array ( 'name' => '东莞市', 'lib' => '326', ), 10 => array ( 'name' => '武汉市', 'lib' => '295', ), 11 => array ( 'name' => '郑州市', 'lib' => '278', ), 12 => array ( 'name' => '成都市', 'lib' => '382', ), 13 => array ( 'name' => '青岛市', 'lib' => '262', ), 14 => array ( 'name' => '大连市', 'lib' => '165', ), );
 
@@ -21,7 +21,7 @@ class IndexController extends Controller {
      */
     public function index()
     {
-        $this->assign('current_menu', '/gzt/index/index');
+        $this->assign('current_menu', '/index/index');
 
         $this->display('Activity/index');
 
@@ -32,7 +32,7 @@ class IndexController extends Controller {
      */
     public function rule()
     {
-        $this->assign('current_menu', '/gzt/index/rule');
+        $this->assign('current_menu', '/index/rule');
         $this->display('Activity/rule');
 
     }
@@ -42,7 +42,7 @@ class IndexController extends Controller {
      */
     public function service()
     {
-        $this->assign('current_menu', '/gzt/index/service');
+        $this->assign('current_menu', '/index/service');
         $this->display('Activity/service');
 
     }
@@ -80,7 +80,7 @@ class IndexController extends Controller {
      */
     public function agreement()
     {
-        $this->assign('current_menu', '/gzt/index/agreement');
+        $this->assign('current_menu', '/index/agreement');
         $this->display('Activity/agreement');
 
     }
@@ -92,7 +92,7 @@ class IndexController extends Controller {
     {
 
         if ($this->uid) {
-            $this->assign('current_menu', '/gzt/index/userhome');
+            $this->assign('current_menu', '/index/userhome');
             $this->display('Activity/userhome');
         } else {
             $this->redirect('index/login');
@@ -224,7 +224,7 @@ class IndexController extends Controller {
                 $a = [
                     0 => [
                         'img' =>  self::domain . '/Public/Activity/img/banner01.jpg',
-                        'url' => 'http://b.eqxiu.com/s/xXjpCM5n?eqrcode=1'
+                        'url' => '#'
                     ],
                     1 => [
                         'img' => self::domain . '/Public/Activity/img/banner02.jpg',

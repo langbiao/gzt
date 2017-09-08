@@ -85,7 +85,7 @@ function sendMassage(sendData){
                 $('.cardtext input').val('');
                 showTip(data.message);
             }else{
-                window.location.href = '/gzt/index/selectcard.html';
+                window.location.href = '/index/selectcard.html';
             }
         },
         error: function(XMLHttpRequest, textStatus){
@@ -97,7 +97,7 @@ function sendMassage(sendData){
 }
 $(function(){
     if(!UID){
-        window.location.href = '/gzt/index/index.html';
+        window.location.href = '/index/index.html';
     }
     $('.submits').on('click',function(){
         var bandCard = new checkBindCard();

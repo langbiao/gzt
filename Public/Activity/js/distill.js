@@ -92,7 +92,7 @@ function sendUsaText(){
 				alertSuccessConfirm({
 					"str":"提取成功,等待打款",
 					"right":"确定",
-					"url":"/gzt/index/userhome.html"
+					"url":"/index/userhome.html"
 				});
                 return true;
             }else{

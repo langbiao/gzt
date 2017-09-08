@@ -36,7 +36,7 @@ function getPromote() {
                 user_promote = data.data;
                 console.log(data);
                 solveTemplate("#user-promote", "#user-promote-template", user_promote);
-                $('.promotes .promote_tit a').attr('href','/gzt/index/recommend.html');
+                $('.promotes .promote_tit a').attr('href','/index/recommend.html');
             }else{
                 $('.promotes .promote_cont').remove();
                 $('.promotes .promote_none').show();

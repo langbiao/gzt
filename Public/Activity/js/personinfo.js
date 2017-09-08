@@ -186,7 +186,7 @@ function delCookie(){
 			  if(data.code == 1)
 			  {
 				 showTip(data.message);
-				 window.location.href='/gzt/index/index.html';
+				 window.location.href='/index/index.html';
 			  }
 		  },
 		  error: function(XMLHttpRequest, textStatus){

@@ -37,7 +37,7 @@ class IndexController extends BaseController{
         if(false !== $flag) {
             $this->success('修改成功');
         }else{
-            $this->success('修改失败，请重试');
+            $this->error('修改失败，请重试');
         }
         
         

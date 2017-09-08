@@ -23,7 +23,7 @@ class IndexController extends BaseController{
         $pw1 = I('password_new1');
         $pw2 = I('password_new2');
         
-        if(emppty($pw1) || empty($pw2)){
+        if(empty($pw1) || empty($pw2)){
             $this->error('密码不能为空');
         }
         if($pw1 != $pw1){

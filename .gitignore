@@ -1,3 +1,4 @@
 .idea
 Application/Admin/Conf/config.php
-Home/Admin/Conf/config.php
+Application/Home/Conf/config.php
+Application/Runtime/

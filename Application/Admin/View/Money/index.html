@@ -22,9 +22,9 @@
                 <td>提取金额</td>
                 <td>银行名称</td>
                 <td>银行卡号</td>
-                <td>状态</td>
                 <td>申请提现时间</td>
                 <td>打款时间</td>
+                <td>状态</td>
                 <td>操作</td>
             </tr>
         </thead>
@@ -38,7 +38,15 @@
                 <td>{$v.mr_bank_number}</td>
                 <td>{$v.mr_addtime|date="Y-m-d H:i:s",###}</td>
                 <td>{$v.mr_updatetime|date="Y-m-d H:i:s",###}</td>
-                <td>{$status_text[$v['mr_status']]}</td>
+                <td>
+                    <if condition="$v['mr_status'] eq 0">
+                        <font color="red">$status_text[$v['mr_status']]}</font>
+                    <elseif condition="$v['mr_status'] eq 1" />
+                        <font color="green">$status_text[$v['mr_status']]}</font>
+                    <else />
+                        <font color="gray">$status_text[$v['mr_status']]}</font>
+                    </if>
+                </td>
                 <td>
                     <if condition="$v['mr_status'] eq 0">
                         <a href="{:U('money/update', array('id'=>$v['mr_id']))}">打款</a>

@@ -6,16 +6,16 @@
 		<input class="form-control" disabled type="text" name="r_username" value="{$user_info[$money_record['mr_u_uid']]}">
 	</div>
 	<div class="form-group">
-		<label>打款金额</label>
-		<input class="form-control" disabled type="text" name="r_mobile" value="{$user_info.mr_money}">
+		<label>打款金额(元)</label>
+		<input class="form-control" disabled type="text" name="r_mobile" value="{$money_record.mr_money}">
 	</div>
     <div class="form-group">
         <label>银行名称</label>
-        <input class="form-control" disabled type="text" name="r_address" value="{$user_info.mr_bank_name}">
+        <input class="form-control" disabled type="text" name="r_address" value="{$money_record.mr_bank_name}">
     </div>
 	<div class="form-group">
 		<label>银行卡号</label>
-		<input class="form-control" disabled type="text" name="r_community" value="{$user_info.mr_bank_number}">
+		<input class="form-control" disabled type="text" name="r_community" value="{$money_record.mr_bank_number}">
 	</div>
     <div class="form-group">
         <label>支行名称</label>
@@ -25,13 +25,13 @@
         <label>状态</label>
         <volist name="status_text" id="vo">
             <label class="radio-inline">
-              <input type="radio" name="r_status" value="{$key}" <if condition="$user_info.r_status eq $key">checked="checked"</if>>{$vo}
+              <input type="radio" name="r_status" value="{$key}" <if condition="$money_record.r_status eq $key">checked="checked"</if>>{$vo}
             </label>
         </volist>
     </div>
     <div class="form-group" id="input_reason" style="<if condition='$model.r_status lt 3'>display:none;</if>">
         <label>驳回原因</label>
-        <input class="form-control" type="text" name="r_reason" value="{$user_info.r_reason}" placeholder="驳回必须填写原因">
+        <input class="form-control" type="text" name="r_reason" value="{$money_record.r_reason}" placeholder="驳回必须填写原因">
     </div>
     <if condition="$model.r_status lt 3">
 	<div class="form-group">

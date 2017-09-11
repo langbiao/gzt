@@ -49,11 +49,16 @@ class MoneyController extends BaseController
     }
 
     /**
-     * 更新
+     * 打款
      */
     public function update()
     {
         $id = I('id');
+
+        if (empty($id)) {
+            $this->error('参数错误');
+        }
+
         //默认显示添加表单
         if (!IS_POST) {
             $money_record = M('money_record', 'gzt_')->where(array('mr_id'=>$id))->find();
@@ -67,49 +72,22 @@ class MoneyController extends BaseController
             $this->display();
         }
         if (IS_POST) {
-            $status = I('r_status');
-            $reason = I('r_reason');
-            $recommend = M('recommend', 'gzt_')->where(array('r_id'=>$id))->find();
+            $status = I('mr_status');
+            $reason = I('mr_reason');
+            $recommend = M('money_record', 'gzt_')->where(array('mr_id'=>$id))->find();
 
-            if (empty($recommend) || $recommend['r_status'] >=3) {
+            if (!in_array($status, array_keys($this->status)) || empty($recommend) || $recommend['r_status'] >0) {
                 $this->error('参数错误');
             }
 
-            $data['r_status'] = $status;
+            // 打款
+            $data['mr_status'] = $status;
+            $data['mr_reason'] = $reason;
+            $data['mr_updatetime'] = time();
 
-            // 量房成功
-            if ($status == 3) {
-                $users = M('users', 'gzt_')->where(array('u_uid'=>$recommend['r_u_uid']))->find();
-                // 查找我的推荐
-                $invite = M('invite_relation', 'gzt_')->where(array('ir_binvite_code'=>$users['u_icode']))->getField('ir_invite_code', true);
-                // 推荐人金额加100
-                $flag1 = M('users', 'gzt_')->where(array('u_uid'=>$recommend['r_u_uid']))->setInc('u_money', 100);
-                
-                if (!$flag1) {
-                    $this->error('更新失败');
-                }
-                if (!empty($invite)) {
-                    $flag2 = M('users', 'gzt_')->where(array('u_uid'=>array('in', $invite)))->setInc('u_money', 50);
-                    if (!$flag2) {
-                        $this->error('更新失败');
-                    }
-                }
-            }
+            M('money_record', 'gzt_')->where(array('mr_id'=>$id))->save($data);
 
-            // 记录日志
-            $d_log['al_r_id'] = $recommend['r_id'];
-            $d_log['al_u_uid'] = $recommend['r_u_uid'];
-            $d_log['al_title'] = $this->status[$status];
-            $d_log['al_reason'] = $reason;
-            $d_log['al_addtime'] = time();
-            M('audit_log', 'gzt_')->add($d_log);
-
-            // 更新推荐状态
-            $t_data['r_status'] = $status;
-            $t_data['r_reason'] = $this->status[$status];
-            M('recommend', 'gzt_')->where(array('r_id'=>$id))->save($t_data);
-
-            $this->success('更新成功');
+            $this->success('更新成功', U('money/idnex'));
 
         }
     }

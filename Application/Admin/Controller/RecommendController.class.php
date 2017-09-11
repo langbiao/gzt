@@ -98,7 +98,7 @@ class RecommendController extends BaseController
             $t_data['r_reason'] = $this->status[$status];
             M('recommend', 'gzt_')->where(array('r_id'=>$id))->save($t_data);
 
-            $this->success('更新成功');
+            $this->success('更新成功', U('recommend/idnex'));
 
         }
     }

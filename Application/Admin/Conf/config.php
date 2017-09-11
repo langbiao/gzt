@@ -15,4 +15,8 @@ return array(
     'DB_PWD'                =>  '',          // 密码
     'DB_PORT'               =>  '3306',        // 端口
     'DB_PREFIX'             =>  'gzt_',    // 数据库表前缀
+
+
+    'TMPL_ACTION_SUCCESS'=>'Public:dispatch_jump',
+    'TMPL_ACTION_ERROR'=>'Public:dispatch_jump',
 );

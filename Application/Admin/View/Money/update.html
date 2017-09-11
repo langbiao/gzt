@@ -25,17 +25,17 @@
         <label>状态</label>
         <volist name="status_text" id="vo">
             <label class="radio-inline">
-              <input type="radio" name="r_status" value="{$key}" <if condition="$money_record.r_status eq $key">checked="checked"</if>>{$vo}
+              <input type="radio" name="r_status" value="{$key}" <if condition="$money_record.mr_status eq $key">checked="checked"</if>>{$vo}
             </label>
         </volist>
     </div>
     <div class="form-group" id="input_reason" style="<if condition='$model.r_status lt 3'>display:none;</if>">
         <label>驳回原因</label>
-        <input class="form-control" type="text" name="r_reason" value="{$money_record.r_reason}" placeholder="驳回必须填写原因">
+        <input class="form-control" type="text" name="r_reason" value="{$money_record.mr_reason}" placeholder="驳回必须填写原因">
     </div>
-    <if condition="$model.r_status lt 3">
+    <if condition="$money_record.mr_status eq 0">
 	<div class="form-group">
-		<input type="hidden" name="id" value="{$model.r_id}">
+		<input type="hidden" name="id" value="{$money_record.mr_id}">
 		<button class="btn btn-success" type="submit" >确定</button>
 	</div>
     </if>

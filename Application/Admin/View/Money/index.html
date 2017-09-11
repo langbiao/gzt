@@ -2,7 +2,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-md-6">
-            <form action="{:U('recommend/index')}" method="post">
+            <form action="{:U('money/index')}" method="post">
                 <div class="form-group input-group">
                     <select class="form-control" name="status">
                         <option value="-1">请选择</option>
@@ -45,7 +45,7 @@
                 <td>{$v.mr_bank_name}</td>
                 <td>{$v.mr_bank_number}</td>
                 <td>{$v.mr_addtime|date="Y-m-d H:i:s",###}</td>
-                <td>{$v.mr_updatetime|date="Y-m-d H:i:s",###}</td>
+                <td><if condition="empty($v['mr_updatetime'])">-<else />{$v.mr_updatetime|date="Y-m-d H:i:s",###}</if></td>
                 <td>
                     <if condition="$v['mr_status'] eq 0">
                         <font color="red">{$status_text[$v['mr_status']]}</font>

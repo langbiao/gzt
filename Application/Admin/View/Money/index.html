@@ -4,7 +4,15 @@
         <div class="col-md-6">
             <form action="{:U('recommend/index')}" method="post">
                 <div class="form-group input-group">
-                    <input type="text" class="form-control" name="key" placeholder="输入推荐姓名搜索">
+                    <select name="status">
+                        <option value="-1">请选择</option>
+                        <foreach name="status_text" item="st">
+                            <option value="{$key}">{st}</option>
+                        </foreach>
+                    </select>
+                </div>
+                <div class="form-group input-group">
+                    <input type="text" class="form-control" name="key" placeholder="输入银行名称搜索">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                     </span>
@@ -19,7 +27,7 @@
             <tr>
                 <td>编号</td>
                 <td>提现手机号</td>
-                <td>提取金额</td>
+                <td>提取金额(元)</td>
                 <td>银行名称</td>
                 <td>银行卡号</td>
                 <td>申请提现时间</td>

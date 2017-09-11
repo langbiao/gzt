@@ -16,13 +16,20 @@ class MoneyController extends BaseController
      * 打款列表
      * @return [type] [description]
      */
-    public function index($key="")
+    public function index()
     {
-        if($key === ""){
-            $model = M('money_record', 'gzt_');
-        }else{
+        $status = I('status');
+        $key = I('key');
+
+        $model = M('money_record', 'gzt_');
+
+        if($key){
             $where['mr_bank_name'] = array('like',"%$key%");
-            $model = M('money_record', 'gzt_')->where($where);
+            $model = $model->where($where);
+        }
+        if ($status != -1) {
+            $where['mr_status'] = $status;
+            $model = $model->where($where);
         }
 
         $count  = $model->order('mr_id desc')->count();// 查询满足要求的总记录数

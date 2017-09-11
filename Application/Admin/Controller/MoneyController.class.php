@@ -27,7 +27,7 @@ class MoneyController extends BaseController
             $where['mr_bank_name'] = array('like',"%$key%");
             $model = $model->where($where);
         }
-        if (isset($status) && $status != -1) {
+        if (isset($_POST['status']) && $status != -1) {
             $where['mr_status'] = $status;
             $model = $model->where($where);
         }

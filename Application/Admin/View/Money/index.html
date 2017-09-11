@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <form action="{:U('recommend/index')}" method="post">
                 <div class="form-group input-group">
-                    <select name="status">
+                    <select class="form-control" name="status">
                         <option value="-1">请选择</option>
                         <foreach name="status_text" item="st">
                             <option value="{$key}">{$st}</option>

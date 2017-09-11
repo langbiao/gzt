@@ -47,6 +47,11 @@ class RecommendController extends BaseController
     public function update()
     {
         $id = I('id');
+
+        if (empty($id)) {
+            $this->error('参数错误');
+        }
+
         //默认显示添加表单
         if (!IS_POST) {
             $recommend = M('recommend', 'gzt_')->where(array('r_id'=>$id))->find();

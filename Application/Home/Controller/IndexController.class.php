@@ -344,11 +344,14 @@ class IndexController extends Controller {
                 if (!preg_match('/^1[3|4|5|7|8|9][0-9]\d{8}$/', $mobile)) {
                     $this->jsonReturn(0, [], '您输入的手机号格式不正确');
                 }
-
+                $user = M('users')->where(array('u_mobile'=>$mobile))->find();
                 if ($type == 1) {
-                    $user = M('users')->where(array('u_mobile'=>$mobile))->find();
                     if ($user) {
                         $this->jsonReturn(0, [], '该手机号码已经注册');
+                    }
+                } else {
+                    if (!$user) {
+                        $this->jsonReturn(0, [], '不存在该手机号码');
                     }
                 }
 

@@ -59,7 +59,7 @@
                     <if condition="$v['mr_status'] eq 0">
                         <a href="{:U('money/update', array('id'=>$v['mr_id']))}">打款</a>
                     <else />
-                        <a href="{:U('money/see', array('id'=>$v['mr_id']))}">查看</a>
+                        <a href="{:U('money/update', array('id'=>$v['mr_id']))}">查看</a>
                     </if>
             </tr>
         </foreach>

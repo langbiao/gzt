@@ -68,15 +68,14 @@ class MoneyController extends BaseController
             $this->assign('status_text', $this->status);
             $this->assign('bank_info', $bank_info);
             $this->assign('user_info', $user_info);
-            $this->assign('see', I('see'));
             $this->display();
         }
         if (IS_POST) {
             $status = I('mr_status');
             $reason = I('mr_reason');
-            $recommend = M('money_record', 'gzt_')->where(array('mr_id'=>$id))->find();
+            $money_record = M('money_record', 'gzt_')->where(array('mr_id'=>$id))->find();
 
-            if (!in_array($status, array_keys($this->status)) || empty($recommend) || $recommend['r_status'] >0) {
+            if (!in_array($status, array_keys($this->status)) || empty($money_record) || empty($status)) {
                 $this->error('参数错误');
             }
 

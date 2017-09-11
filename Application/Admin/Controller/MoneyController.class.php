@@ -86,7 +86,7 @@ class MoneyController extends BaseController
             $data['mr_updatetime'] = time();
 
             M('money_record', 'gzt_')->where(array('mr_id'=>$id))->save($data);
-echo M('money_record', 'gzt_')->_sql();die;
+
             $this->success('更新成功', U('money/index'));
 
         }

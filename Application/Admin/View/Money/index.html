@@ -40,11 +40,11 @@
                 <td>{$v.mr_updatetime|date="Y-m-d H:i:s",###}</td>
                 <td>
                     <if condition="$v['mr_status'] eq 0">
-                        <font color="red">$status_text[$v['mr_status']]}</font>
+                        <font color="red">{$status_text[$v['mr_status']]}</font>
                     <elseif condition="$v['mr_status'] eq 1" />
-                        <font color="green">$status_text[$v['mr_status']]}</font>
+                        <font color="green">{$status_text[$v['mr_status']]}</font>
                     <else />
-                        <font color="gray">$status_text[$v['mr_status']]}</font>
+                        <font color="gray">{$status_text[$v['mr_status']]}</font>
                     </if>
                 </td>
                 <td>

@@ -56,9 +56,13 @@ class MoneyController extends BaseController
         $id = I('id');
         //默认显示添加表单
         if (!IS_POST) {
-            $recommend = M('recommend', 'gzt_')->where(array('r_id'=>$id))->find();
-            $this->assign('model',$recommend);
+            $money_record = M('money_record', 'gzt_')->where(array('mr_id'=>$id))->find();
+            $bank_info = M('bankinfo', 'gzt_')->where(array('b_id'=>$money_record['mr_bank_id']))->find();
+            $user_info = M('users', 'gzt_')->where(array('u_uid'=>$money_record['mr_u_uid']))->getField('u_uid, u_mobile', true);
+            $this->assign('money_record', $money_record);
             $this->assign('status_text', $this->status);
+            $this->assign('bank_info', $bank_info);
+            $this->assign('user_info', $user_info);
             $this->assign('see', I('see'));
             $this->display();
         }

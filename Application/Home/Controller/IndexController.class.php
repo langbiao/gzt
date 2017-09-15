@@ -905,4 +905,38 @@ class IndexController extends Controller {
             return FALSE;
     }
 
+
+    public function test()
+    {
+
+        $demo = new \Extend\AliSms(
+            "yourAccessKeyId",
+            "yourAccessKeySecret"
+        );
+
+        echo "SmsDemo::sendSms\n";
+        $response = $demo->sendSms(
+            "短信签名", // 短信签名
+            "SMS_0000001", // 短信模板编号
+            "12345678901", // 短信接收者
+            Array(  // 短信模板中字段的值
+                "code"=>"12345",
+                "product"=>"dsd"
+            ),
+            "123"
+        );
+        dump($response);
+
+//        echo "SmsDemo::queryDetails\n";
+//        $response = $demo->queryDetails(
+//            "12345678901",  // phoneNumbers 电话号码
+//            "20170718", // sendDate 发送时间
+//            10, // pageSize 分页大小
+//            1 // currentPage 当前页码
+//        // "abcd" // bizId 短信发送流水号，选填
+//        );
+//
+//        print_r($response);
+    }
+
 }

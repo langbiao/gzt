@@ -83,13 +83,7 @@ function getMsgTel(telNum){
 			
 			if(data.code == 1)
 			{
-                _flag = false;
-                alertConfirm({
-                    "str":"验证码:" + data.data.code,
-                    "right":"确定",
-                    "error":"取消",
-                    "url":""
-                });
+                		_flag = false;
 				console.log("验证码发送成功");	
 				timer();
 			} else {

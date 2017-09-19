@@ -453,7 +453,7 @@ class IndexController extends Controller {
                 }
 
                 if (!empty($rcode)) {
-                    $is_exsist = M('users')->where(array('rcode'=>$rcode, 'u_status'=>1))->find();
+                    $is_exsist = M('users')->where(array('rcode'=>$rcode, 'u_status'=>1, 'u_mobile'=>array('neq', $mobile)))->find();
                     if (empty($is_exsist)) {
                         $this->jsonReturn(0, [], '输入的邀请码不存在');
                     }

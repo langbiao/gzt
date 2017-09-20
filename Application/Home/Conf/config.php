@@ -15,4 +15,8 @@ return array(
     'DB_PWD'                =>  '',          // 密码
     'DB_PORT'               =>  '3306',        // 端口
     'DB_PREFIX'             =>  'gzt_',    // 数据库表前缀
+
+    'TMPL_ACTION_SUCCESS'=>'Public:exception',
+    'TMPL_ACTION_ERROR'=>'Public:exception',
+    'TMPL_EXCEPTION_FILE'   =>  'Public:exception',// 异常页面的模板文件
 );

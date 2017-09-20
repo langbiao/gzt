@@ -52,7 +52,7 @@ class IndexController extends Controller {
      */
     public function login()
     {
-		$this->assign('show_footer', 'no');
+        $this->assign('show_footer', 'no');
         if ($_SESSION['user']['u_uid'] && $_SESSION['user']['u_uid'] == cookie('tj_id')) {
             $this->redirect('index/userhome');
         } else {
@@ -66,7 +66,7 @@ class IndexController extends Controller {
      */
     public function reg()
     {
-		$this->assign('show_footer', 'no');
+        $this->assign('show_footer', 'no');
         $icode = $_GET['icode'];
         if ($icode) {
             $this->assign('icode', $icode);
@@ -139,8 +139,8 @@ class IndexController extends Controller {
             $this->redirect('index/login');
         }
     }
-	
-	/**
+
+    /**
      * 提现
      */
     public function distill()
@@ -152,8 +152,8 @@ class IndexController extends Controller {
             $this->redirect('index/login');
         }
     }
-	
-	/**
+
+    /**
      * 银行卡列表
      */
     public function selectcard()
@@ -359,7 +359,7 @@ class IndexController extends Controller {
                 $smscode = $this->generateCode();
 
                 // 发送验证码
-                $flag = $this->sendMsg($smscode);
+                $flag = $this->sendMsg($mobile, $smscode);
 
                 if ($flag) {
                     $data['cap_opt'] = $type;
@@ -369,7 +369,7 @@ class IndexController extends Controller {
                     $data['cap_ip'] = get_client_ip();
                     $data['cap_addtime'] = time();
                     M('captcha')->add($data);
-                    $this->jsonReturn(1, ['code'=>$smscode], '发送验证码成功');
+                    $this->jsonReturn(1, ['code'=>''], '发送验证码成功');
                 } else {
                     $this->jsonReturn(0, [], '发送验证码失败');
                 }
@@ -588,7 +588,7 @@ class IndexController extends Controller {
                 if (empty($recommend_info)) {
                     $this->jsonReturn(0, [], '没有推荐信息');
                 }
-                
+
                 $a = [
                     "uid"=>$uid,
                     "money"=>"100.00",
@@ -614,7 +614,7 @@ class IndexController extends Controller {
                 }
                 $this->jsonReturn(1, $a, '获取推荐详情成功');
                 break;
-			// 获取二维码
+            // 获取二维码
             case 'qrcode':
                 $uid = $_SESSION['user']['u_uid'];
                 if (empty($uid)) {
@@ -624,19 +624,19 @@ class IndexController extends Controller {
                     $img = self::domain . "./Public/QRcode/gztqrcode_{$uid}.png";
                 } else {
                     $u_icode = M('users')->where(array('u_uid'=>$uid))->getField('u_icode');
-                    $jump_url = self::domain . "gzt/index/reg.html?icode={$u_icode}";
+                    $jump_url = self::domain . "index/reg.html?icode={$u_icode}";
                     $this->createQRcode('./Public/QRcode/', $uid, $jump_url);
 
                     $img = self::domain . "./Public/QRcode/gztqrcode_{$uid}.png";
                 }
                 $this->jsonReturn(1, ['qrcode'=>$img], '生成二维码成功');
                 break;
-			// 提取金额
-			case 'domoney':
-				$uid = $_SESSION['user']['u_uid'];
-				$c_uid = cookie('tj_id');
-				
-				if (empty($uid) || empty($c_uid)) {
+            // 提取金额
+            case 'domoney':
+                $uid = $_SESSION['user']['u_uid'];
+                $c_uid = cookie('tj_id');
+
+                if (empty($uid) || empty($c_uid)) {
                     $this->jsonReturn(0, [], '未登录');
                 }
 
@@ -681,14 +681,14 @@ class IndexController extends Controller {
 
                 $model->commit();
 
-				$this->jsonReturn(1, [], '提取成功');
+                $this->jsonReturn(1, [], '提取成功');
                 break;
-			// 获取金额
-			case 'getmoney':
-				$uid = $_SESSION['user']['u_uid'];
-				$c_uid = cookie('tj_id');
-				$bid = $_POST['bid'];
-				if (empty($uid) || empty($c_uid)) {
+            // 获取金额
+            case 'getmoney':
+                $uid = $_SESSION['user']['u_uid'];
+                $c_uid = cookie('tj_id');
+                $bid = $_POST['bid'];
+                if (empty($uid) || empty($c_uid)) {
                     $this->jsonReturn(0, [], '未登录');
                 }
                 $bankinfo = [];
@@ -702,15 +702,15 @@ class IndexController extends Controller {
                 // 历史提现金额
                 $his_money = M('money_record')->where(array('mr_u_uid'=>$uid, 'mr_status'=>1))->getField('SUM(mr_money)');
 
-				$a['bank_id'] = $bankinfo['b_id'];
-				$a['bank_name'] = $bankinfo['b_bank_name'];
-				$a['bank_number'] = $bankinfo['b_bank_number'];
-				$a['bank_str'] = $bankinfo['b_bank_number'] ? $bankinfo['b_bank_name'] . '(尾号' .substr($bankinfo['b_bank_number'], -4) . ')' : '';
-				$a['cumulative_money'] = $user['u_money'] ? sprintf('%.2f', $user['u_money']) : 0.00;
-				$a['extract_money'] = sprintf('%.2f', $his_money);
-				$a['status'] = $bankinfo['b_bank_number'] ? 1 : 0;
-				
-				$this->jsonReturn(1, $a, '获取成功');
+                $a['bank_id'] = $bankinfo['b_id'];
+                $a['bank_name'] = $bankinfo['b_bank_name'];
+                $a['bank_number'] = $bankinfo['b_bank_number'];
+                $a['bank_str'] = $bankinfo['b_bank_number'] ? $bankinfo['b_bank_name'] . '(尾号' .substr($bankinfo['b_bank_number'], -4) . ')' : '';
+                $a['cumulative_money'] = $user['u_money'] ? sprintf('%.2f', $user['u_money']) : 0.00;
+                $a['extract_money'] = sprintf('%.2f', $his_money);
+                $a['status'] = $bankinfo['b_bank_number'] ? 1 : 0;
+
+                $this->jsonReturn(1, $a, '获取成功');
                 break;
             // 选择银行卡
             case 'selectcard':
@@ -827,9 +827,27 @@ class IndexController extends Controller {
         return $code;
     }
 
-    private function sendMsg($smscode)
+    private function sendMsg($mobile, $smscode)
     {
-        return true;
+        $demo = new \Extend\AliSms(
+            C('ACCESSKEYID'),
+            C('ACCESSKEYSECRET')
+        );
+
+        $response = $demo->sendSms(
+            C('SMSSIGN'), // 短信签名
+            C('SMSCODE'), // 短信模板编号
+            $mobile, // 短信接收者
+            Array(  // 短信模板中字段的值
+                "number"=>$smscode
+            ),
+            time()
+        );
+        if ($response->Code == 'OK' && $response->Message == 'OK') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private function jsonReturn($code = 0, $data = [], $message = '')
@@ -903,40 +921,6 @@ class IndexController extends Controller {
             return basename($filename);
         else
             return FALSE;
-    }
-
-
-    public function test()
-    {
-
-        $demo = new \Extend\AliSms(
-            "yourAccessKeyId",
-            "yourAccessKeySecret"
-        );
-
-        echo "SmsDemo::sendSms\n";
-        $response = $demo->sendSms(
-            "短信签名", // 短信签名
-            "SMS_0000001", // 短信模板编号
-            "12345678901", // 短信接收者
-            Array(  // 短信模板中字段的值
-                "code"=>"12345",
-                "product"=>"dsd"
-            ),
-            "123"
-        );
-        dump($response);
-
-//        echo "SmsDemo::queryDetails\n";
-//        $response = $demo->queryDetails(
-//            "12345678901",  // phoneNumbers 电话号码
-//            "20170718", // sendDate 发送时间
-//            10, // pageSize 分页大小
-//            1 // currentPage 当前页码
-//        // "abcd" // bizId 短信发送流水号，选填
-//        );
-//
-//        print_r($response);
     }
 
 }

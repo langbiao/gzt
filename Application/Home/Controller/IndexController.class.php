@@ -221,13 +221,14 @@ class IndexController extends Controller {
                 break;
             // 获取首页banner
             case 'banners':
+                $time = time();
                 $a = [
                     0 => [
-                        'img' =>  self::domain . '/Public/Activity/img/banner01.jpg',
+                        'img' =>  self::domain . '/Public/Activity/img/banner01.jpg?v='.$time,
                         'url' => '#'
                     ],
                     1 => [
-                        'img' => self::domain . '/Public/Activity/img/banner02.jpg',
+                        'img' => self::domain . '/Public/Activity/img/banner02.jpg?v='.$time,
                         'url' => 'http://www.58gzt.com'
                     ]
                 ];

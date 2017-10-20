@@ -76,14 +76,19 @@ class RecommendController extends BaseController
                 $users = M('users', 'gzt_')->where(array('u_uid'=>$recommend['r_u_uid']))->find();
                 // 查找我的推荐
                 $invite = M('invite_relation', 'gzt_')->where(array('ir_binvite_code'=>$users['u_icode']))->getField('ir_invite_code', true);
-                // 推荐人金额加100
-                $flag1 = M('users', 'gzt_')->where(array('u_uid'=>$recommend['r_u_uid']))->setInc('u_money', 100);
+                // 推荐人金额加100或60
+                if ($recommend['r_all'] == 1) {
+                    $add_money = 100;
+                } else {
+                    $add_money = 60;
+                }
+                $flag1 = M('users', 'gzt_')->where(array('u_uid'=>$recommend['r_u_uid']))->setInc('u_money', $add_money);
                 
                 if (!$flag1) {
                     $this->error('更新失败');
                 }
                 if (!empty($invite)) {
-                    $flag2 = M('users', 'gzt_')->where(array('u_uid'=>array('in', $invite)))->setInc('u_money', 50);
+                    $flag2 = M('users', 'gzt_')->where(array('u_uid'=>array('in', $invite)))->setInc('u_money', 20);
                     if (!$flag2) {
                         $this->error('更新失败');
                     }

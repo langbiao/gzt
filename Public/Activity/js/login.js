@@ -99,13 +99,14 @@ function getMsgTel(telNum){
 	});
 }
 //sendLogin
-function sendLogin(telNum,msgNum){
+function sendLogin(telNum,msgNum, pwd){
 	$.ajax({
 		type: "POST",
 		url: __LOGIN_URL__,
 		data:{
 			"mobile":telNum,
 			"smscode":msgNum,
+			"pwd":pwd,
             "type":2
 			},
 		dataType: "json",
@@ -244,6 +245,12 @@ function checkTel(flag) {
 		console.log("发送验证码行数开始执行");
 	}
 	if ( tempFlag=="loginRequest") {
+        var tempPwd = $("#pwd").val();
+        if(tempPwd.length < 6 || tempPwd.length > 16)
+        {
+            showTip("请输入6-16位密码");
+            return false;
+        }
 		checkMsgWord(tempFlag);
 		console.log("登录，接着验证:验证码");
 	}
@@ -281,7 +288,7 @@ function checkMsgWord(flag){
 	}
 	if( tempMsg !=="" && tempFlag=="loginRequest" ){
 		//$("#loginBtn").addClass("xxxxxxx");
-		sendLogin(tempTel,tempMsg);
+		sendLogin(tempTel,tempMsg, tempPwd);
 		console.log("发送登录信息函数");
 		
 	}

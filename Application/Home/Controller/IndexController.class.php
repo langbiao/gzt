@@ -379,6 +379,7 @@ class IndexController extends Controller {
             case 'login':
                 $mobile = $_POST['mobile'];
                 $smscode = $_POST['smscode'];
+                $pwd = $_POST['pwd'];
 
                 if (empty($mobile)) {
                     $this->jsonReturn(0, [], '请输入手机号');
@@ -386,31 +387,31 @@ class IndexController extends Controller {
                 if (!preg_match('/^1[3|4|5|7|8|9][0-9]\d{8}$/', $mobile)) {
                     $this->jsonReturn(0, [], '您输入的手机号格式不正确');
                 }
-                if (empty($smscode)) {
-                    $this->jsonReturn(0, [], '请输入验证码');
-                }
+//                if (empty($smscode)) {
+//                    $this->jsonReturn(0, [], '请输入验证码');
+//                }
+//
+//                $captchaData = M('captcha')->where(array('cap_to'=>$mobile, 'cap_opt'=>2, 'cap_code'=>$smscode))->order('cap_addtime desc')->find();
+//
+//                if (empty($captchaData)) {
+//                    $this->jsonReturn(0, [], '验证码错误');
+//                }
+//
+//                if ($captchaData['cap_status'] == 1) {
+//                    $this->jsonReturn(0, [], '验证码使用，重新获取');
+//                }
+//
+//                if (time() - $captchaData['cap_addtime'] > 60) {
+//                    $this->jsonReturn(0, [], '验证码过期，重新获取');
+//                }
 
-                $captchaData = M('captcha')->where(array('cap_to'=>$mobile, 'cap_opt'=>2, 'cap_code'=>$smscode))->order('cap_addtime desc')->find();
-
-                if (empty($captchaData)) {
-                    $this->jsonReturn(0, [], '验证码错误');
-                }
-
-                if ($captchaData['cap_status'] == 1) {
-                    $this->jsonReturn(0, [], '验证码使用，重新获取');
-                }
-
-                if (time() - $captchaData['cap_addtime'] > 60) {
-                    $this->jsonReturn(0, [], '验证码过期，重新获取');
-                }
-
-                $user = M('users')->where(array('u_mobile'=>$mobile, 'u_status'=>1))->find();
+                $user = M('users')->where(array('u_mobile'=>$mobile, 'u_pwd'=>md5($pwd), 'u_status'=>1))->find();
 
                 if (empty($user)) {
-                    $this->jsonReturn(0, [], '不存在该用户');
+                    $this->jsonReturn(0, [], '用户不存在或密码错误');
                 }
 
-                M('captcha')->where(array('cap_id'=>$captchaData['cap_id'], 'cap_opt'=>2))->save(array('cap_status'=>1));
+//                M('captcha')->where(array('cap_id'=>$captchaData['cap_id'], 'cap_opt'=>2))->save(array('cap_status'=>1));
 
                 $_SESSION['user'] = $user;
 

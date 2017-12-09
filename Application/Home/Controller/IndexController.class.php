@@ -422,12 +422,16 @@ class IndexController extends Controller {
                 $mobile = $_POST['mobile'];
                 $smscode = $_POST['smscode'];
                 $rcode = $_POST['rcode'];
+                $pwd = $_POST['pwd'];
 
                 if (empty($mobile)) {
                     $this->jsonReturn(0, [], '请输入手机号');
                 }
                 if (!preg_match('/^1[3|4|5|7|8|9][0-9]\d{8}$/', $mobile)) {
                     $this->jsonReturn(0, [], '您输入的手机号格式不正确');
+                }
+                if (empty($pwd)) {
+                    $this->jsonReturn(0, [], '请输入6-16位密码');
                 }
                 if (empty($smscode)) {
                     $this->jsonReturn(0, [], '请输入验证码');
@@ -467,6 +471,7 @@ class IndexController extends Controller {
                 }
 
                 $data['u_mobile'] = $mobile;
+                $data['u_pwd'] = md5($pwd);
                 $data['u_regtime'] = time();
                 $data['u_regip'] = get_client_ip();
                 $data['u_regtype'] = 3;

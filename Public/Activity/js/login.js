@@ -145,7 +145,7 @@ function sendLogin(telNum,msgNum){
 }
 
 //sendReg
-function sendReg(telNum,msgNum,codeNum){
+function sendReg(telNum,msgNum,codeNum, pwd){
 	$.ajax({
 		type: "POST",
 		url: __REG_URL__,
@@ -153,6 +153,7 @@ function sendReg(telNum,msgNum,codeNum){
 			"mobile":telNum,
 			"smscode":msgNum,
 			"rcode":codeNum,
+			"pwd":pwd,
 			"type":1
 			},
 		dataType: "json",
@@ -247,6 +248,12 @@ function checkTel(flag) {
 		console.log("登录，接着验证:验证码");
 	}
 	if ( tempFlag=="regRequest") {
+        var tempPwd = $("#pwd").val();
+        if(tempPwd.length < 6 || tempPwd.length > 16)
+        {
+            showTip("请输入6-16位密码");
+            return false;
+        }
 		checkMsgWord(tempFlag);
 		console.log("注册,接着验证:验证码");
 	}
@@ -264,6 +271,7 @@ function checkMsgWord(flag){
 	var tempTel = $("#tel").val();
 	var tempMsg = $("#msgWord").val();
 	var tempCode = $("#code").val();
+	var tempPwd = $("#pwd").val();
 	console.log(tempFlag);
 	if(tempMsg == ""){
 		
@@ -278,7 +286,7 @@ function checkMsgWord(flag){
 		
 	}
 	if( tempMsg !=="" && tempFlag=="regRequest" ){
-		sendReg(tempTel,tempMsg,tempCode);
+		sendReg(tempTel,tempMsg,tempCode, tempPwd);
 		console.log("发送注册信息函数");	
 	}
 }

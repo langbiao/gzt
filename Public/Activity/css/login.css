@@ -19,6 +19,16 @@ section{ padding:0 0.5rem; text-align:center;}
 .item{ border-bottom:solid 1px #e3e3e3; height:1.14rem; font:0.3rem "Microsoft YaHei";}
 .item label{ color:#999; float:left; margin-top:0.41rem; margin-right:0.27rem;}
 .item input[type="text"]{ color:#333; border:none; float:left; margin-top:0.44rem; outline:none; width:2.2rem; font:0.3rem/0.36rem "Microsoft YaHei"; height:0.36rem;}
+.item input[type="password"] {
+    color: #333;
+    border: none;
+    float: left;
+    margin-top: 0.44rem;
+    outline: none;
+    width: 2.2rem;
+    font: 0.3rem/0.36rem "Microsoft YaHei";
+    height: 0.36rem;
+}
 .item input[type="text"].invite{ width:1rem; color:#47a2ff;}
 .msgBtn{ float:right; color:#ffa41f; font:0.3rem/0.7rem "Microsoft YaHei"; height:0.7rem; border:solid 1px #ffa41f; -moz-border-radius:0.1rem; -webkit-border-radius:0.1rem; -khtml-border-radius:0.1rem; border-radius:0.1rem; padding:0 0.1rem; margin-top:0.2rem;}
 .info{ float:right; color:#b4b4b4; font-size:0.24rem; width:4rem; text-align:right; margin-top:0.43rem;}
